@@ -4,7 +4,7 @@
 CFTP - Compression add-on for File Transfer Protocol
 
 # About CFTP
-CFTP uses gzip and tar compression to reduce the size of the transferred files and combine them into one tar.gz archive stored in the server and client caches (useful for a large number of photos, text files and other small files in large quantities) and auto-extracting them on the server, which  greatly increases the speed of transferring files via ftp
+CFTP uses gzip and tar compression to reduce the size of the transferred files and combine them into one tar.gz archive, temporarily stored in the server and client tmp directories (useful for a large number of photos, text files and other small files in large quantities) and its auto-extracting on  server, which significantly increases the speed of file transfer via ftp
 
 # Client device
 <img src="Screenshots/cftp_client.jpg" align="center" />
@@ -12,4 +12,4 @@ CFTP uses gzip and tar compression to reduce the size of the transferred files a
 # Server device
 <img src="Screenshots/cftp_server.jpg" align="center" />
 
-The size of the cache in the current version depends on the size of the transferred files and the cache is deleted immediately after the completion of the file transfer/receive operations.
+The size of the tmp directory in the current version depends on the size of the transferred files, and the archive file is deleted immediately after the file transfer / receive operations are completed.
