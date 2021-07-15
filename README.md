@@ -8,6 +8,7 @@ CFTP uses gzip and tar compression to reduce the size of the transferred files a
 
 # Client device
 <img src="Screenshots/cftp_client.jpg" align="center" />
+
 # Server device
 <img src="Screenshots/cftp_server.jpg" align="center" />
 
