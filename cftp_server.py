@@ -14,10 +14,10 @@ FTP_HOST = "0.0.0.0"
 FTP_PORT = 2221
 
 # The name of the FTP user that can log in.
-FTP_USER = "android"
+FTP_USER = "user"
 
 # The FTP user's password.
-FTP_PASSWORD = "android"
+FTP_PASSWORD = "password"
 
 # The directory the FTP user will have full read/write access to.
 FTP_DIRECTORY = "."
