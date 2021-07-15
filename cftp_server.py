@@ -2,7 +2,7 @@ from pyftpdlib.authorizers import DummyAuthorizer
 from pyftpdlib.handlers import FTPHandler
 from pyftpdlib.servers import FTPServer
 
-import os
+import os, configparser
 import tar_progress as tar
 from threading import Thread
 from time import sleep
@@ -24,15 +24,26 @@ FTP_DIRECTORY = "."
 
 os.chdir(APP_DIR)
 
+def tmpmetaread():
+  config = configparser.ConfigParser()
+  tmpmeta = "tmp/tmpmeta"
+  config.read(tmpmeta)
+  global decompile_to
+  decompile_to = config['TMPMETA']['decdir']
+  
+  return decompile_to
+
 def extract_on_stor():
   while True:
     sleep(5)
     
-    if os.path.isfile('tmpmeta'):
+    if os.path.isfile('tmp/tmpmeta'):
       print ("PASS!")
-      tar.extract("storfiles.tar.gz")
-      os.remove("tmpmeta")
-      os.remove("storfiles.tar.gz")
+      tmpmetaread()
+      print("Extracting to '" + decompile_to + "' directory")
+      tar.extract("tmp/storfiles.tar.gz", decompile_to)
+      os.remove("tmp/tmpmeta")
+      os.remove("tmp/storfiles.tar.gz")
     else:
       pass
       #print ("Waiting..")
