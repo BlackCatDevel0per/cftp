@@ -3,6 +3,10 @@ import tar_progress as tar
 from tqdm import tqdm
 import os, configparser
 
+def file_extensionsort(fn):
+  #filenames = fn
+  config = configparser.ConfigParser()
+
 def storfile(user, passwd, host, port, filenames, transferdir='.'):
   tmpdir = "tmp"
   tmpfile = "tmp/storfiles.tar.gz"
