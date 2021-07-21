@@ -40,7 +40,7 @@ def extract_on_stor():
     if os.path.isfile('tmp/tmpmeta'):
       print ("PASS!")
       tmpmetaread()
-      print("Extracting to '" + decompile_to + "' directory")
+      print("Extracting to '", decompile_to, "' directory")
       tar.extract("tmp/storfiles.tar.gz", decompile_to)
       os.remove("tmp/tmpmeta")
       os.remove("tmp/storfiles.tar.gz")
