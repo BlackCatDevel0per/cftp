@@ -98,29 +98,29 @@ def file_extensionsort(fn):
   #print(fn)
   ###
   if totalsize <= int(tmpsize) and totalcount >= 10 and total2tar >= 10: # if files size <= tmp size in kb and files count >= 10 and file extensions for tar compressing >= 10
-    print(TAR)
+    #print(TAR)
     return TAR
   
   elif totalsize > int(tmpsize):
     print("Warning! tmp size may not be enough!", " datasize: ", totalsize, ", tmpsize: ", tmpsize)
   
   elif total2tgz >= 10:
-    print(TGZ)
+    #print(TGZ)
     return TGZ
   
   elif totalunextfiles >= 10:
     print("Please sort by size")
   
   elif total2tar == total2tgz:
-    print(TGZ)
+    #print(TGZ)
     return TGZ
   
   elif total2tar > total2tgz:
-    print(TAR)
+    #print(TAR)
     return TAR
   
   elif total2tar < total2tgz:
-    print(TGZ)
+    #print(TGZ)
     return TGZ
   ###
 
@@ -129,3 +129,7 @@ def file_extensionsort(fn):
 fn = ['testdata', 'testdata2', 'LICENSE', 'settings.ini']
 #fn = ['file', 'file.txt', 'file.mp3', 'file.mp4', 'file.avi', 'file.html', 'file.css', 'file.js', 'file.py', 'file.mkv', ]
 file_extensionsort(fn)
+"""
+f = file_extensionsort(fn)
+print(f)
+"""
