@@ -1,23 +1,21 @@
 from ftplib import FTP
 import tar_progress as tar
-from sort import file_extensionsort as c2
 from tqdm import tqdm
 import os, configparser
 
+def file_extensionsort(fn):
+  #filenames = fn
+  config = configparser.ConfigParser()
 
 def storfile(user, passwd, host, port, filenames, transferdir='.'):
-  c2c = c2(filenames) # sort
   tmpdir = "tmp"
-  if c2c=="TAR":
-    tmpfile = "tmp/storfiles.tar"
-  elif c2c=="TGZ":
-    tmpfile = "tmp/storfiles.tar.gz"
+  tmpfile = "tmp/storfiles.tar.gz"
   tmpmeta = "tmp/tmpmeta"
   ### File names tmp
-  tmpfilename = tmpfile.replace("tmp/", "")
+  tmpfilename = "storfiles.tar.gz"
   tmpmetaname = "tmpmeta"
-  ### Compress data
-  tar.compress(tmpfile, filenames, c2c)
+  ###
+  tar.compress(tmpfile, filenames)
   
   ftp = FTP()
   ftp.connect(host, port)

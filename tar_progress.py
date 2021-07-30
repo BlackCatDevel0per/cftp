@@ -4,16 +4,8 @@ from tqdm import tqdm
 # compress("compressed.tar.gz", ["test.txt", "test_folder"])
 # extract("compressed.tar.gz", "extracted")
 
-def extract(tar_file, path=".", mode="r", members=None):
-    if mode=="TAR":
-      fext="r"
-    elif mode=="TGZ":
-      fext="r:gz"
-    else:
-      print("???")
-    
-    print(fext)
-    tar = tarfile.open(tar_file, mode=fext)
+def extract(tar_file, path=".", members=None):
+    tar = tarfile.open(tar_file, mode="r:gz")
     if members is None:
         members = tar.getmembers()
     progress = tqdm(members)
@@ -25,14 +17,8 @@ def extract(tar_file, path=".", mode="r", members=None):
     tar.close()
 
 
-def compress(tar_file, mode="w", members=None):
-    if mode=="TAR":#Check that!!!
-      mode="w"
-    elif mode=="TGZ":
-      mode="w:gz"
-    print(mode)
-
-    tar = tarfile.open(tar_file, mode)
+def compress(tar_file, members):
+    tar = tarfile.open(tar_file, mode="w:gz")
     progress = tqdm(members)
     for member in progress:
         tar.add(member)

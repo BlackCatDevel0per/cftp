@@ -38,18 +38,12 @@ def extract_on_stor():
     sleep(5)
     
     if os.path.isfile('tmp/tmpmeta'):
-      if os.path.isfile('tmp/storfiles.tar'):
-        storfile = "storfiles.tar"
-        mode = "TAR"
-      elif os.path.isfile('tmp/storfiles.tar.gz'):
-        storfile = "storfiles.tar.gz"
-        mode = "TGZ"
       print ("PASS!")
       tmpmetaread()
       print("Extracting to '", decompile_to, "' directory")
-      tar.extract("tmp/"+storfile, decompile_to, mode)
+      tar.extract("tmp/storfiles.tar.gz", decompile_to)
       os.remove("tmp/tmpmeta")
-      os.remove("tmp/"+storfile)
+      os.remove("tmp/storfiles.tar.gz")
     else:
       pass
       #print ("Waiting..")
